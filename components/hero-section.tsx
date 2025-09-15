@@ -9,8 +9,18 @@ import Link from "next/link";
 export function HeroSection() {
   const scrollToAbout = () => {
     const element = document.querySelector("#about");
+
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+      console.log("Scrolling to about section");
+    } else {
+      console.warn("About section not found");
+      // Fallback: scroll to top of page
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -74,28 +84,43 @@ export function HeroSection() {
               </Button>
 
               <div className="flex gap-2">
-                <Button variant="outline" size="icon" asChild>
-                  <Link
-                    href="https://github.com/Mo7med3li"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github className="h-4 w-4" />
-                  </Link>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => {
+                    console.log("GitHub button clicked");
+                    window.open(
+                      "https://github.com/Mo7med3li",
+                      "_blank",
+                      "noopener,noreferrer"
+                    );
+                  }}
+                >
+                  <Github className="h-4 w-4" />
                 </Button>
-                <Button variant="outline" size="icon" asChild>
-                  <Link
-                    href="https://www.linkedin.com/in/mohamed-ali-58363a304/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                  </Link>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => {
+                    console.log("LinkedIn button clicked");
+                    window.open(
+                      "https://www.linkedin.com/in/mohamed-ali-58363a304/",
+                      "_blank",
+                      "noopener,noreferrer"
+                    );
+                  }}
+                >
+                  <Linkedin className="h-4 w-4" />
                 </Button>
-                <Button variant="outline" size="icon" asChild>
-                  <Link href="mailto:mmkandeelz74@gmail.com">
-                    <Mail className="h-4 w-4" />
-                  </Link>
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => {
+                    console.log("Mail button clicked");
+                    window.open("mailto:mmkandeelz74@gmail.com", "_self");
+                  }}
+                >
+                  <Mail className="h-4 w-4" />
                 </Button>
               </div>
             </motion.div>
@@ -146,6 +171,7 @@ export function HeroSection() {
           transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY }}
           className="cursor-pointer"
           onClick={scrollToAbout}
+          title="Scroll to About Section"
         >
           <ArrowDown className="h-6 w-6 text-muted-foreground" />
         </motion.div>

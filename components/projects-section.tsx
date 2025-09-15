@@ -20,8 +20,8 @@ const projects = [
       "next-intl",
       "Shadcn/UI",
     ],
-    codeLink: "https://github.com/Mo7med3li/meals",
-    demoLink: "https://meals-psi-one.vercel.app/",
+    codeLink: "https://github.com/Elevate-Team-4/Elevate-Flower-App",
+    demoLink: "https://github.com/Elevate-Team-4/Elevate-Flower-App",
   },
   {
     title: "Fresh-Cart - E-commerce Platform",
@@ -50,16 +50,15 @@ const projects = [
       "Authentication",
     ],
     codeLink: "https://github.com/Mo7med3li/ExamApp",
-    demoLink:
-      "https://exam-app-29yi-92tit2m64-mohamed-alis-projects-f1c626db.vercel.app/en/auth/login?callbackUrl=%2F",
+    demoLink: "https://exam-app-q7nd.vercel.app/",
   },
   {
-    title: "Yummy - Meal Discovery Application",
+    title: "Task Management App",
     description:
-      "Developed a dynamic web app using vanilla JavaScript and jQuery to fetch data from a public API. Implemented a real-time search feature and designed a clean, responsive interface with Bootstrap.",
-    technologies: ["JavaScript", "jQuery", "Bootstrap", "REST API"],
-    codeLink: "#",
-    demoLink: "#",
+      "Developed a fullstack project management platform with authentication (JWT, bcrypt), project & task CRUD operations, Prisma ORM, and responsive UI using Tailwind CSS and Shadcn UI.",
+    technologies: ["Next.js", "Prisma", "Tailwind", "Shadcn/UI"],
+    codeLink: "https://github.com/Mo7med3li/Task-management",
+    demoLink: "https://fullstack-next-js-xvkm.vercel.app/home",
   },
 ];
 

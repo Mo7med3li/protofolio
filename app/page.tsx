@@ -7,7 +7,7 @@ import { ContactSection } from "@/components/contact-section";
 
 export default function Home() {
   return (
-    <main className="bg-background">
+    <main className="bg-background overflow-hidden p-2">
       <HeroSection />
       <AboutSection />
       <SkillsSection />
