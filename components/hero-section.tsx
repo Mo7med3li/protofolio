@@ -4,11 +4,10 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 export function HeroSection() {
   const scrollToAbout = () => {
-    const element = document.querySelector("#about");
+    const element = document.querySelector("#projects");
 
     if (element) {
       element.scrollIntoView({
@@ -16,9 +15,7 @@ export function HeroSection() {
         block: "start",
         inline: "nearest",
       });
-      console.log("Scrolling to about section");
     } else {
-      console.warn("About section not found");
       // Fallback: scroll to top of page
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -29,7 +26,7 @@ export function HeroSection() {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+      <div />
 
       <div className="container mx-auto px-4 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -88,7 +85,6 @@ export function HeroSection() {
                   variant="outline"
                   size="icon"
                   onClick={() => {
-                    console.log("GitHub button clicked");
                     window.open(
                       "https://github.com/Mo7med3li",
                       "_blank",
