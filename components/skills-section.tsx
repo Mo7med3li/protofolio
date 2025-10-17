@@ -44,6 +44,9 @@ const skillCategories = [
       "Chrome DevTools",
       "Vercel",
       "Jira",
+      "Postman",
+      "Figma",
+      "Slack",
     ],
   },
   {
@@ -52,7 +55,7 @@ const skillCategories = [
   },
   {
     title: "Authentication & I18n",
-    skills: ["NextAuth.js", "Next-Intl"],
+    skills: ["NextAuth.js", "Next-Intl", "React-intl"],
   },
 ];
 

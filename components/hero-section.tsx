@@ -55,7 +55,7 @@ export function HeroSection() {
               transition={{ delay: 0.4, duration: 0.8 }}
               className="text-xl md:text-2xl text-muted-foreground"
             >
-              Junior Frontend Developer
+              Software Developer specialized in frontend development
             </motion.p>
 
             <motion.p

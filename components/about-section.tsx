@@ -34,17 +34,19 @@ export function AboutSection() {
               Professional Summary
             </h3>
             <p className="text-muted-foreground leading-relaxed">
-              I'm a Junior Frontend Developer with hands-on experience building
-              fast, accessible, and responsive web applications using React.js
-              and Next.js. I'm committed to writing clean, maintainable code and
-              solving real-world challenges by applying core computer science
-              principles.
+              Software Developer specialized in frontend development, skilled in
+              building fast, responsive, and accessible web applications with
+              React.js and Next.js. Passionate about writing clean, maintainable
+              code and applying computer science fundamentals to solve
+              real-world problems.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               I have experience working in collaborative, Agile environments
               utilizing Scrum and Jira to deliver projects efficiently.
               Currently, I'm expanding my skills through the Next.js Training
-              Program at Elevate Tech.
+              Program at Elevate Tech. Currently expanding my skills into
+              backend development using Node.js and Express.js to become a more
+              versatile full-stack developer.
             </p>
             <p className="text-muted-foreground leading-relaxed">
               I hold a B.Sc. in Computer Science from Menoufia University,
