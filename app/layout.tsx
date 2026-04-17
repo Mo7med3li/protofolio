@@ -8,14 +8,14 @@ import { Navigation } from "@/components/navigation"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Mohamed Ali Farag Qandil - Frontend Developer",
+  title: "Mohamed Ali Qandil — Frontend Developer | React & Next.js",
   description:
-    "Junior Frontend Developer specializing in React.js, Next.js, and modern web technologies. Building fast, accessible, and responsive web applications.",
-  keywords: "Frontend Developer, React.js, Next.js, TypeScript, JavaScript, Web Development, Cairo, Egypt",
+    "Frontend Developer specializing in React.js, Next.js, and TypeScript. Building fast, accessible, and pixel-perfect web applications. Open to new opportunities.",
+  keywords: "Frontend Developer, React.js, Next.js, TypeScript, JavaScript, Web Development, Cairo, Egypt, Hire Frontend Developer",
   authors: [{ name: "Mohamed Ali Farag Qandil" }],
   openGraph: {
-    title: "Mohamed Ali Farag Qandil - Frontend Developer",
-    description: "Junior Frontend Developer specializing in React.js, Next.js, and modern web technologies.",
+    title: "Mohamed Ali Qandil — Frontend Developer | React & Next.js",
+    description: "Frontend Developer specializing in React.js, Next.js, and TypeScript. Building production-grade web applications.",
     url: "https://mohamedaliqandil.dev",
     siteName: "Mohamed Ali Portfolio",
     locale: "en_US",
@@ -23,10 +23,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mohamed Ali Farag Qandil - Frontend Developer",
-    description: "Junior Frontend Developer specializing in React.js, Next.js, and modern web technologies.",
+    title: "Mohamed Ali Qandil — Frontend Developer | React & Next.js",
+    description: "Frontend Developer specializing in React.js, Next.js, and TypeScript. Open to new opportunities.",
   },
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
