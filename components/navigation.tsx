@@ -4,22 +4,23 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun, Menu, X, Code2 } from "lucide-react";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 const navItems = [
-  { name: "Home",       href: "#home" },
-  { name: "About",      href: "#about" },
-  { name: "Skills",     href: "#skills" },
-  { name: "Projects",   href: "#projects" },
-  { name: "Education",  href: "#education" },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Education", href: "#education" },
   { name: "Experience", href: "#experience" },
-  { name: "Contact",    href: "#contact" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export function Navigation() {
-  const [isOpen, setIsOpen]     = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive]     = useState("#home");
-  const { theme, setTheme }     = useTheme();
+  const [active, setActive] = useState("#home");
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -36,7 +37,7 @@ export function Navigation() {
           if (e.isIntersecting) setActive(`#${e.target.id}`);
         });
       },
-      { rootMargin: "-40% 0px -55% 0px" }
+      { rootMargin: "-40% 0px -55% 0px" },
     );
     ids.forEach((id) => {
       const el = document.getElementById(id);
@@ -86,9 +87,10 @@ export function Navigation() {
                 key={item.name}
                 onClick={() => scrollTo(item.href)}
                 className={`relative px-3 py-1.5 rounded-lg text-sm font-medium transition-all duration-200
-                  ${active === item.href
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                  ${
+                    active === item.href
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
                   }`}
               >
                 {item.name}
@@ -114,12 +116,18 @@ export function Navigation() {
               <Moon className="absolute h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
             </button>
 
-            <a
+            <Link
               href="mailto:mmkandeelz74@gmail.com"
               className="hidden md:flex items-center gap-2 px-4 py-1.5 rounded-lg bg-primary text-primary-foreground text-sm font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5"
             >
               Hire Me
-            </a>
+            </Link>
+            <Link
+              href="/Mohamed Ali Qandil-Front End Developer.pdf"
+              className="flex items-center gap-2 px-4 py-1.5 rounded-xl border border-border bg-card/60 backdrop-blur-sm font-semibold text-sm hover:border-primary/40 hover:bg-primary/5 transition-all hover:-translate-y-0.5 active:translate-y-0"
+            >
+              Resume
+            </Link>
 
             {/* Mobile hamburger */}
             <button
@@ -127,7 +135,11 @@ export function Navigation() {
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {isOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
@@ -152,9 +164,10 @@ export function Navigation() {
                   transition={{ delay: i * 0.05 }}
                   onClick={() => scrollTo(item.href)}
                   className={`block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium transition-all
-                    ${active === item.href
-                      ? "bg-primary/10 text-primary border border-primary/20"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+                    ${
+                      active === item.href
+                        ? "bg-primary/10 text-primary border border-primary/20"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
                     }`}
                 >
                   {item.name}

@@ -10,6 +10,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const TITLES = [
@@ -149,11 +150,19 @@ export function HeroSection() {
                 <ArrowDown className="h-4 w-4" />
               </button>
 
+              <Link
+                href="/Mohamed Ali Qandil-Front End Developer.pdf"
+                className="flex items-center gap-2 px-6 py-3 rounded-xl border border-border bg-card/60 backdrop-blur-sm font-semibold text-sm hover:border-primary/40 hover:bg-primary/5 transition-all hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <Download className="h-4 w-4" />
+                View my Resume
+              </Link>
+
               <a
                 href="mailto:mmkandeelz74@gmail.com"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl border border-border bg-card/60 backdrop-blur-sm font-semibold text-sm hover:border-primary/40 hover:bg-primary/5 transition-all hover:-translate-y-0.5 active:translate-y-0"
               >
-                <Download className="h-4 w-4" />
+                <Mail className="h-4 w-4" />
                 Contact Me
               </a>
             </motion.div>
