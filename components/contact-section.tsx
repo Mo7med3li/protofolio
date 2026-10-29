@@ -9,8 +9,8 @@ import {
   Github,
   Linkedin,
   Send,
-  CheckCircle,
   ArrowRight,
+  ExternalLink,
 } from "lucide-react";
 
 const CONTACT_METHODS = [
@@ -24,7 +24,7 @@ const CONTACT_METHODS = [
   {
     icon: Phone,
     label: "Phone",
-    value: "+201505748872",
+    value: "+20 150 574 8872",
     href: "tel:+201505748872",
     desc: "Available on WhatsApp too",
   },
@@ -59,25 +59,25 @@ export function ContactSection() {
     message: "",
     subject: "",
   });
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [openedMail, setOpenedMail] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    // Simulate submit
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    const subject = encodeURIComponent(
+      formState.subject.trim() || "Portfolio contact",
+    );
+    const body = encodeURIComponent(
+      `Name: ${formState.name}\nEmail: ${formState.email}\n\n${formState.message}`,
+    );
+    window.location.href = `mailto:mmkandeelz74@gmail.com?subject=${subject}&body=${body}`;
+    setOpenedMail(true);
   };
 
   return (
     <section id="contact" className="py-28 relative">
-      {/* Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-96 rounded-full bg-primary/10 blur-[120px] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -87,17 +87,15 @@ export function ContactSection() {
         >
           <span className="section-chip mb-4">06 — Contact</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-5">
-            Let's work <span className="gradient-text">together</span>
+            Let&apos;s work <span className="gradient-text">together</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            I'm currently open to new opportunities. Whether you have a project
-            in mind, a question, or just want to say hi — my inbox is always
-            open! 👋
+            Open to full-time roles and interesting collaborations. Prefer email
+            — I usually reply within 24 hours.
           </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-10">
-          {/* ── Left: Contact info ── */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -134,7 +132,6 @@ export function ContactSection() {
               </div>
             ))}
 
-            {/* Social */}
             <div className="glass-card p-5 space-y-3">
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
                 Find me online
@@ -161,22 +158,20 @@ export function ContactSection() {
               ))}
             </div>
 
-            {/* Availability */}
             <div className="glass-card p-5">
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 <span className="text-sm font-semibold text-emerald-500">
-                  Currently Available
+                  Open to opportunities
                 </span>
               </div>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Open to full-time positions, freelance projects, and exciting
-                collaborations. Typically respond within 24 hours.
+                Frontend roles (React / Next.js) — hybrid in Cairo or remote.
+                Freelance projects welcome when the fit is clear.
               </p>
             </div>
           </motion.div>
 
-          {/* ── Right: Contact form ── */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -185,157 +180,125 @@ export function ContactSection() {
             className="lg:col-span-3"
           >
             <div className="glass-card p-8">
-              {submitted ? (
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="flex flex-col items-center justify-center py-16 text-center space-y-4"
-                >
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/10 flex items-center justify-center">
-                    <CheckCircle className="h-8 w-8 text-emerald-500" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">
-                    Message Sent!
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <h3 className="text-lg font-bold text-foreground mb-1">
+                    Send a Message
                   </h3>
-                  <p className="text-muted-foreground text-sm max-w-sm">
-                    Thanks for reaching out! I'll get back to you within 24
-                    hours.
+                  <p className="text-sm text-muted-foreground">
+                    Opens your email app with this message pre-filled — no fake
+                    &quot;sent&quot; screen.
                   </p>
-                  <button
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormState({
-                        name: "",
-                        email: "",
-                        message: "",
-                        subject: "",
-                      });
-                    }}
-                    className="text-sm text-primary hover:underline"
-                  >
-                    Send another message
-                  </button>
-                </motion.div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
-                    <h3 className="text-lg font-bold text-foreground mb-1">
-                      Send a Message
-                    </h3>
-                    <p className="text-sm text-muted-foreground">
-                      All fields are required.
-                    </p>
-                  </div>
+                </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    {/* Name */}
-                    <div className="space-y-1.5">
-                      <label
-                        htmlFor="contact-name"
-                        className="text-xs font-semibold text-muted-foreground uppercase tracking-wide"
-                      >
-                        Name
-                      </label>
-                      <input
-                        id="contact-name"
-                        type="text"
-                        required
-                        placeholder="Mohamed Ali"
-                        value={formState.name}
-                        onChange={(e) =>
-                          setFormState((s) => ({ ...s, name: e.target.value }))
-                        }
-                        className="w-full px-4 py-2.5 rounded-xl border border-border bg-muted/30 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:bg-primary/5 transition-all"
-                      />
-                    </div>
-                    {/* Email */}
-                    <div className="space-y-1.5">
-                      <label
-                        htmlFor="contact-email"
-                        className="text-xs font-semibold text-muted-foreground uppercase tracking-wide"
-                      >
-                        Email
-                      </label>
-                      <input
-                        id="contact-email"
-                        type="email"
-                        required
-                        placeholder="[EMAIL_ADDRESS]"
-                        value={formState.email}
-                        onChange={(e) =>
-                          setFormState((s) => ({ ...s, email: e.target.value }))
-                        }
-                        className="w-full px-4 py-2.5 rounded-xl border border-border bg-muted/30 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:bg-primary/5 transition-all"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Subject */}
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
                     <label
-                      htmlFor="contact-subject"
+                      htmlFor="contact-name"
                       className="text-xs font-semibold text-muted-foreground uppercase tracking-wide"
                     >
-                      Subject
+                      Name
                     </label>
                     <input
-                      id="contact-subject"
+                      id="contact-name"
                       type="text"
                       required
-                      placeholder="Job opportunity / Project collaboration / ..."
-                      value={formState.subject}
+                      autoComplete="name"
+                      placeholder="Your name"
+                      value={formState.name}
                       onChange={(e) =>
-                        setFormState((s) => ({ ...s, subject: e.target.value }))
+                        setFormState((s) => ({ ...s, name: e.target.value }))
                       }
                       className="w-full px-4 py-2.5 rounded-xl border border-border bg-muted/30 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:bg-primary/5 transition-all"
                     />
                   </div>
-
-                  {/* Message */}
                   <div className="space-y-1.5">
                     <label
-                      htmlFor="contact-message"
+                      htmlFor="contact-email"
                       className="text-xs font-semibold text-muted-foreground uppercase tracking-wide"
                     >
-                      Message
+                      Email
                     </label>
-                    <textarea
-                      id="contact-message"
+                    <input
+                      id="contact-email"
+                      type="email"
                       required
-                      rows={5}
-                      placeholder="Tell me about your project or opportunity..."
-                      value={formState.message}
+                      autoComplete="email"
+                      placeholder="you@company.com"
+                      value={formState.email}
                       onChange={(e) =>
-                        setFormState((s) => ({ ...s, message: e.target.value }))
+                        setFormState((s) => ({ ...s, email: e.target.value }))
                       }
-                      className="w-full px-4 py-2.5 rounded-xl border border-border bg-muted/30 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:bg-primary/5 transition-all resize-none"
+                      className="w-full px-4 py-2.5 rounded-xl border border-border bg-muted/30 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:bg-primary/5 transition-all"
                     />
                   </div>
+                </div>
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 disabled:opacity-60 disabled:cursor-not-allowed transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0"
+                <div className="space-y-1.5">
+                  <label
+                    htmlFor="contact-subject"
+                    className="text-xs font-semibold text-muted-foreground uppercase tracking-wide"
                   >
-                    {loading ? (
-                      <>
-                        <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
-                        Sending…
-                      </>
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4" />
-                        Send Message
-                      </>
-                    )}
-                  </button>
-                </form>
-              )}
+                    Subject
+                  </label>
+                  <input
+                    id="contact-subject"
+                    type="text"
+                    required
+                    placeholder="Job opportunity / Project collaboration / ..."
+                    value={formState.subject}
+                    onChange={(e) =>
+                      setFormState((s) => ({ ...s, subject: e.target.value }))
+                    }
+                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-muted/30 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:bg-primary/5 transition-all"
+                  />
+                </div>
+
+                <div className="space-y-1.5">
+                  <label
+                    htmlFor="contact-message"
+                    className="text-xs font-semibold text-muted-foreground uppercase tracking-wide"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="contact-message"
+                    required
+                    rows={5}
+                    placeholder="Tell me about the role or project..."
+                    value={formState.message}
+                    onChange={(e) =>
+                      setFormState((s) => ({ ...s, message: e.target.value }))
+                    }
+                    className="w-full px-4 py-2.5 rounded-xl border border-border bg-muted/30 text-sm placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:bg-primary/5 transition-all resize-none"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-primary text-primary-foreground font-semibold text-sm hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:-translate-y-0.5 active:translate-y-0"
+                >
+                  <Send className="h-4 w-4" />
+                  Open in Email App
+                </button>
+
+                {openedMail && (
+                  <p className="text-xs text-muted-foreground text-center flex items-center justify-center gap-1.5">
+                    <ExternalLink className="h-3.5 w-3.5" />
+                    If nothing opened, email me directly at{" "}
+                    <a
+                      href="mailto:mmkandeelz74@gmail.com"
+                      className="text-primary hover:underline"
+                    >
+                      mmkandeelz74@gmail.com
+                    </a>
+                  </p>
+                )}
+              </form>
             </div>
           </motion.div>
         </div>
 
-        {/* Footer */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -343,11 +306,11 @@ export function ContactSection() {
           className="text-center mt-20 pt-8 border-t border-border/50"
         >
           <p className="text-muted-foreground text-sm">
-            Designed &amp; built with ❤️ by{" "}
+            Designed &amp; built by{" "}
             <span className="text-primary font-medium">Mohamed Ali Qandil</span>
           </p>
           <p className="text-muted-foreground/60 text-xs mt-1">
-            © {new Date().getFullYear()} · All rights reserved
+            © {new Date().getFullYear()} · Cairo, Egypt
           </p>
         </motion.div>
       </div>

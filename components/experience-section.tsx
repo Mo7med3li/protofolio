@@ -5,42 +5,40 @@ import { Briefcase, MapPin, Calendar, CheckCircle2 } from "lucide-react";
 
 const EXPERIENCES = [
   {
-    role: "Frontend Developer — React / Next.js",
-    company: "BlueRibbon Egypt",
+    role: "Frontend Developer",
+    company: "Blue Ribbon",
     type: "Full-time",
     location: "Hybrid",
     period: "Nov 2025 – Present",
     current: true,
     bullets: [
-      "Developing and optimizing user interfaces for production-level digital platforms used by thousands of users.",
-      "Translating pixel-perfect UI/UX designs into reusable, accessible React components.",
-      "Integrating REST APIs and collaborating closely with backend and product teams in an Agile environment.",
-      "Collaborated with QA engineers to identify and fix bugs.",
-      "Developed production-ready, scalable, and maintainable applications.",
-      "Participated in sprint planning, sprint review, and sprint retrospective.",
-      "Driving performance optimization, bundle reduction, and cross-browser compatibility.",
+      "Develop and maintain production features in React.js, Next.js, and TypeScript — from staging to release — with backend and QA.",
+      "Built 25+ reusable UI components that sped up delivery and kept the interface consistent across modules.",
+      "Completed 180+ tasks (features and bug fixes) in production, improving stability and reliability.",
+      "Migrated the live panel from Ant Design to Shadcn UI and from Formik to TanStack Form, and adapted it to a new backend.",
     ],
-    tech: ["React", "Next.js", "TypeScript", "Tailwind CSS", "REST APIs"],
+    tech: ["React", "Next.js", "TypeScript", "Shadcn UI", "TanStack Form", "REST APIs"],
   },
   {
     role: "Frontend Intern",
     company: "Elevate Tech",
     type: "Internship",
     location: "Remote",
-    period: "Mar 2025 – Oct 2025",
+    period: "Mar 2025 – Nov 2025",
     current: false,
     bullets: [
-      "Worked in cross-functional Agile teams on real-world production projects from day one.",
-      "Built scalable, maintainable apps with React.js, Next.js, TypeScript, and Tailwind CSS.",
-      "Implemented end-to-end authentication with NextAuth.js and multilingual support with Next-Intl.",
-      "Participated in peer code reviews, sprint planning sessions, and retrospectives.",
+      "Built 15+ reusable React and Next.js components used across Agile sprint deliverables.",
+      "Integrated 15+ REST API endpoints with Axios for data fetching and form submission.",
+      "Implemented type-safe forms in TypeScript and localized the UI with next-intl (2 languages).",
+      "Took part in 15+ code reviews per sprint, improving quality and reducing merge conflicts.",
     ],
     tech: [
       "React.js",
       "Next.js",
       "TypeScript",
       "NextAuth",
-      "Next-Intl",
+      "next-intl",
+      "Axios",
       "Tailwind CSS",
     ],
   },
@@ -52,7 +50,6 @@ export function ExperienceSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,18 +59,16 @@ export function ExperienceSection() {
         >
           <span className="section-chip mb-4">05 — Experience</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-5">
-            Where I've <span className="gradient-text">worked</span>
+            Where I&apos;ve <span className="gradient-text">worked</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            My professional journey building real products in collaborative
-            teams.
+            Production delivery on collaborative teams — measured by what shipped,
+            not just what was attended.
           </p>
         </motion.div>
 
-        {/* Timeline */}
         <div className="max-w-4xl mx-auto">
           <div className="relative space-y-8">
-            {/* Vertical line */}
             <div className="absolute left-8 top-8 bottom-8 w-px bg-gradient-to-b from-primary via-accent/50 to-transparent hidden md:block" />
 
             {EXPERIENCES.map((exp, i) => (
@@ -85,7 +80,6 @@ export function ExperienceSection() {
                 transition={{ duration: 0.6, delay: i * 0.15 }}
                 className="relative md:pl-20"
               >
-                {/* Timeline dot */}
                 <div className="absolute left-5 top-8 hidden md:flex items-center justify-center">
                   <div
                     className={`w-6 h-6 rounded-full border-2 flex items-center justify-center ${
@@ -100,9 +94,7 @@ export function ExperienceSection() {
                   </div>
                 </div>
 
-                {/* Card */}
                 <div className="glass-card p-6 md:p-8 hover:border-primary/30 transition-all hover:-translate-y-1 duration-300">
-                  {/* Top: meta */}
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
                     <div className="space-y-1">
                       <div className="flex items-center gap-2 flex-wrap">
@@ -135,7 +127,6 @@ export function ExperienceSection() {
                     </div>
                   </div>
 
-                  {/* Bullets */}
                   <ul className="space-y-3 mb-6">
                     {exp.bullets.map((bullet, j) => (
                       <motion.li
@@ -152,7 +143,6 @@ export function ExperienceSection() {
                     ))}
                   </ul>
 
-                  {/* Tech used */}
                   <div className="flex flex-wrap gap-2">
                     {exp.tech.map((t) => (
                       <span key={t} className="tech-tag">

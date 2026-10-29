@@ -6,113 +6,82 @@ import { useState } from "react";
 const SKILL_CATEGORIES = [
   {
     id: "frontend",
-    label: "Frontend Core",
-    color: "from-violet-500 to-purple-600",
+    label: "Frontend",
     icon: "⚛️",
     skills: [
-      { name: "React.js", level: 95 },
-      { name: "Next.js", level: 95 },
-      { name: "TypeScript", level: 95 },
-      { name: "JavaScript (ES6+)", level: 95 },
-      { name: "HTML5 / CSS3", level: 100 },
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "JavaScript (ES6+)",
+      "HTML5",
+      "CSS3",
+      "PWA",
     ],
   },
   {
     id: "styling",
     label: "UI & Styling",
-    color: "from-pink-500 to-rose-500",
     icon: "🎨",
     skills: [
-      { name: "Tailwind CSS", level: 100 },
-      { name: "Shadcn/UI", level: 95 },
-      { name: "Ant Design", level: 80 },
-      { name: "Material-UI (MUI)", level: 80 },
-      { name: "Bootstrap", level: 90 },
-      { name: "Responsive Design", level: 100 },
+      "Tailwind CSS",
+      "Shadcn UI",
+      "Material UI",
+      "Ant Design",
+      "Bootstrap",
     ],
   },
   {
     id: "state",
-    label: "State & Data",
-    color: "from-sky-500 to-cyan-500",
+    label: "State & Forms",
     icon: "🔄",
     skills: [
-      { name: "TanStack Query", level: 95 },
-      { name: "Redux Toolkit", level: 85 },
-      { name: "Context API", level: 90 },
-      { name: "React Hook Form", level: 90 },
-      { name: "Formik", level: 90 },
-      { name: "TanStack Form", level: 95 },
-      { name: "Zod / Yup", level: 95 },
+      "TanStack Query",
+      "Redux Toolkit",
+      "Zustand",
+      "Context API",
+      "TanStack Form",
+      "React Hook Form",
+      "Formik",
+      "Zod",
+      "Yup",
     ],
   },
   {
-    id: "auth",
-    label: "Auth & I18n",
-    color: "from-emerald-500 to-teal-500",
+    id: "apis",
+    label: "APIs, Auth & Backend",
     icon: "🔐",
     skills: [
-      { name: "NextAuth.js", level: 90 },
-      { name: "Next-Intl", level: 90 },
-      { name: "React-intl", level: 85 },
-      { name: "RESTful APIs", level: 90 },
-      { name: "Axios", level: 90 },
+      "REST APIs",
+      "Axios",
+      "NextAuth.js",
+      "JWT",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "next-intl",
+      "react-intl",
     ],
   },
   {
     id: "tools",
-    label: "Tools & Platforms",
-    color: "from-orange-500 to-amber-500",
+    label: "Tools & Quality",
     icon: "🛠️",
     skills: [
-      { name: "Git / GitHub", level: 90 },
-      { name: "GitHub Actions", level: 90 },
-      { name: "Vercel", level: 90 },
-      { name: "Figma", level: 90 },
-      { name: "Jira / Slack / ClickUp", level: 90 },
+      "Git",
+      "GitHub",
+      "GitHub Actions",
+      "Vercel",
+      "VS Code",
+      "Cursor",
+      "Jira",
+      "ClickUp",
+      "Core Web Vitals",
+      "Lighthouse",
+      "Chrome DevTools",
+      "React DevTools",
     ],
   },
-];
-
-const ALL_PILLS = [
-  "React.js",
-  "Next.js",
-  "TypeScript",
-  "JavaScript",
-  "HTML5",
-  "CSS3",
-  "Tailwind CSS",
-  "Shadcn UI",
-  "MUI",
-  "Ant Design",
-  "Bootstrap",
-  "Redux Toolkit",
-  "Context API",
-  "Zustand",
-  "TanStack Query",
-  "React Hook Form",
-  "TanStack Form",
-  "Formik",
-  "Zod",
-  "Yup",
-  "NextAuth.js",
-  "Next-Intl",
-  "React-intl",
-  "RESTful APIs",
-  "Axios",
-  "Git",
-  "GitHub",
-  "GitHub Actions",
-  "Chrome DevTools",
-  "Vercel",
-  "Figma",
-  "Jira",
-  "ClickUp",
-  "Slack",
-  "Postman",
-  "Api Dog",
-  "Node.js (Learning)",
-  "Express.js (Learning)",
 ];
 
 export function SkillsSection() {
@@ -121,11 +90,9 @@ export function SkillsSection() {
 
   return (
     <section id="skills" className="py-28 relative">
-      {/* subtle section bg */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/[0.03] to-transparent pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -135,16 +102,15 @@ export function SkillsSection() {
         >
           <span className="section-chip mb-4">02 — Skills</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-4 mb-5">
-            My technical <span className="gradient-text">toolkit</span>
+            Technical <span className="gradient-text">toolkit</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Technologies and tools I use to build world-class web experiences.
+            Technologies I use in production — grouped by how I actually work,
+            not fake proficiency bars.
           </p>
         </motion.div>
 
-        {/* Tabs + proficiency panel */}
         <div className="grid lg:grid-cols-5 gap-8 mb-16">
-          {/* Tab selector */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -162,7 +128,9 @@ export function SkillsSection() {
                       : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                   }`}
               >
-                <span className="text-xl">{cat.icon}</span>
+                <span className="text-xl" aria-hidden>
+                  {cat.icon}
+                </span>
                 <span className="font-semibold text-sm">{cat.label}</span>
                 {activeTab === cat.id && (
                   <span className="ml-auto w-1.5 h-1.5 rounded-full bg-primary shrink-0 hidden lg:block" />
@@ -171,52 +139,41 @@ export function SkillsSection() {
             ))}
           </motion.div>
 
-          {/* Proficiency bars */}
           <motion.div
             key={activeTab}
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-            className="lg:col-span-3 glass-card p-6 md:p-8 space-y-6"
+            transition={{ duration: 0.35 }}
+            className="lg:col-span-3 glass-card p-6 md:p-8"
           >
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-2xl">{active.icon}</span>
+            <div className="flex items-center gap-3 mb-6">
+              <span className="text-2xl" aria-hidden>
+                {active.icon}
+              </span>
               <div>
                 <h3 className="font-bold text-foreground">{active.label}</h3>
                 <p className="text-xs text-muted-foreground">
-                  {active.skills.length} technologies
+                  Used in shipped projects & production work
                 </p>
               </div>
             </div>
 
-            {active.skills.map(({ name, level }, i) => (
-              <div key={name} className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-sm font-medium text-foreground">
-                    {name}
-                  </span>
-                  <span className="text-xs font-mono text-muted-foreground">
-                    {level}%
-                  </span>
-                </div>
-                <div className="progress-bar">
-                  <motion.div
-                    className="progress-fill"
-                    initial={{ width: 0 }}
-                    animate={{ width: `${level}%` }}
-                    transition={{
-                      duration: 1,
-                      delay: i * 0.1,
-                      ease: "easeOut",
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
+            <div className="flex flex-wrap gap-2">
+              {active.skills.map((name, i) => (
+                <motion.span
+                  key={name}
+                  initial={{ opacity: 0, scale: 0.92 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: i * 0.03, duration: 0.25 }}
+                  className="skill-pill"
+                >
+                  {name}
+                </motion.span>
+              ))}
+            </div>
           </motion.div>
         </div>
 
-        {/* All skills cloud */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -224,11 +181,28 @@ export function SkillsSection() {
           transition={{ duration: 0.6 }}
           className="glass-card p-8"
         >
-          <h3 className="text-base font-bold text-foreground mb-6 text-center">
-            Complete Technology Stack
+          <h3 className="text-base font-bold text-foreground mb-2 text-center">
+            Also comfortable with
           </h3>
+          <p className="text-xs text-muted-foreground text-center mb-6">
+            CS foundations: Data Structures, Algorithms, C++, SQL
+          </p>
           <div className="flex flex-wrap gap-2 justify-center">
-            {ALL_PILLS.map((skill, i) => (
+            {[
+              "React.js",
+              "Next.js",
+              "TypeScript",
+              "Node.js",
+              "Express.js",
+              "MongoDB",
+              "TanStack Query",
+              "NextAuth.js",
+              "Zod",
+              "Tailwind CSS",
+              "Shadcn UI",
+              "GitHub Actions",
+              "Vercel",
+            ].map((skill, i) => (
               <motion.span
                 key={skill}
                 initial={{ opacity: 0, scale: 0.8 }}

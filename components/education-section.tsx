@@ -12,23 +12,18 @@ import {
 const EDUCATION = [
   {
     degree: "B.Sc. in Computer Science",
-    institution: "Menoufia University",
-    location: "Menoufia, Egypt",
-    period: "Graduated",
-    type: "University",
+    institution: "Menoufia University, Egypt",
+    period: "Graduated July 2025",
     courses: [
       "Algorithms & Data Structures",
-      "Problem Solving",
       "Object-Oriented Programming",
       "Database Management Systems",
-      "Software Engineering Principles",
+      "Software Engineering",
+      "Problem Solving",
       "Computer Networks",
       "Operating Systems",
-      "Cloud Computing",
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Web Development",
-      "Embedded Systems",
+      "C++",
+      "SQL",
     ],
     icon: GraduationCap,
   },
@@ -38,18 +33,18 @@ const CERTIFICATIONS = [
   {
     title: "Next.js Training Program",
     issuer: "Elevate Tech",
-    period: "2025 March - 2025 October",
+    period: "2025",
     status: "Completed",
     statusColor: "text-primary bg-primary/10 border-primary/20",
     description:
-      "Advanced training covering Next.js App Router, server components, performance optimization, and production deployment patterns.",
+      "App Router, server components, authentication, i18n, and production deployment patterns — applied on real sprint deliverables.",
     skills: [
       "Next.js",
       "TypeScript",
       "Tailwind CSS",
       "NextAuth",
       "Shadcn UI",
-      "Next-Intl",
+      "next-intl",
       "Agile",
     ],
     icon: Award,
@@ -61,7 +56,7 @@ const CERTIFICATIONS = [
     status: "Completed",
     statusColor: "text-primary bg-primary/10 border-primary/20",
     description:
-      "Comprehensive 6-month intensive program covering React ecosystem, modern JavaScript, REST API integration, and industry best practices.",
+      "Intensive program covering the React ecosystem, modern JavaScript, REST API integration, and industry practices.",
     skills: [
       "React.js",
       "JavaScript ES6+",
@@ -80,7 +75,6 @@ export function EducationSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.03] to-transparent pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,13 +87,11 @@ export function EducationSection() {
             Learning & <span className="gradient-text">credentials</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            My academic foundation and professional certifications that shaped
-            my engineering mindset.
+            Academic foundation and training that shaped how I ship software.
           </p>
         </motion.div>
 
         <div className="space-y-10">
-          {/* ── University ── */}
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -119,7 +111,6 @@ export function EducationSection() {
                 className="glass-card p-6 md:p-8 hover:border-primary/30 transition-all hover:-translate-y-1"
               >
                 <div className="flex flex-col md:flex-row gap-6">
-                  {/* Icon */}
                   <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center shrink-0 shadow-lg">
                     <edu.icon className="h-7 w-7 text-primary" />
                   </div>
@@ -160,7 +151,6 @@ export function EducationSection() {
             ))}
           </div>
 
-          {/* ── Certifications ── */}
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-8 h-8 rounded-lg bg-accent/10 flex items-center justify-center">
